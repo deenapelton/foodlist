@@ -1,0 +1,34 @@
+{
+  "foodList": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "quanity": 10,
+      "expiryDate": "2022-12-31"
+    },
+    {
+      "id": 2,
+      "name": "Pizza",
+      "quanity": 5,
+      "expiryDate": "2022-12-31"
+    },
+    {
+      "id": 3,
+      "name": "Pasta",
+      "quanity": 15,
+      "expiryDate": "2022-12-31"
+    },
+    {
+      "id": 4,
+      "name": "Noodles",
+      "quanity": 20,
+      "expiryDate": "2022-12-31"
+    },
+    {
+      "id": 5,
+      "name": "Sandwich",
+      "quanity": 25,
+      "expiryDate": "2022-12-31"
+    }
+  ]
+}
