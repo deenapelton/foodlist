@@ -1,34 +1,58 @@
 {
   "foodList": [
     {
-      "id": 1,
-      "name": "Burger",
-      "quanity": 10,
-      "expiryDate": "2022-12-31"
+      "id": "3",
+      "name": "burger",
+      "quanity": 1,
+      "expiryDate": "tomorrow"
     },
     {
-      "id": 2,
-      "name": "Pizza",
-      "quanity": 5,
-      "expiryDate": "2022-12-31"
-    },
-    {
-      "id": 3,
-      "name": "Pasta",
-      "quanity": 15,
-      "expiryDate": "2022-12-31"
-    },
-    {
-      "id": 4,
-      "name": "Noodles",
-      "quanity": 20,
-      "expiryDate": "2022-12-31"
-    },
-    {
-      "id": 5,
+      "id": "4",
       "name": "Sandwich",
       "quanity": 25,
       "expiryDate": "2022-12-31"
+    },
+    {
+      "id": "5",
+      "name": "Ham",
+      "quanity": 1,
+      "expiryDate": "Dec"
+    },
+    {
+      "id": "6",
+      "name": "Apple Sauce",
+      "quanity": 2,
+      "expiryDate": "2025, Dec 21"
+    },
+    {
+      "id": "9",
+      "name": "Pudding",
+      "quanity": 1,
+      "expiryDate": "March"
+    },
+    {
+      "id": "10",
+      "name": "Pizza",
+      "quanity": 1,
+      "expiryDate": "dec"
+    },
+    {
+      "id": "11",
+      "name": "Popsicles",
+      "quanity": 1,
+      "expiryDate": "forever"
+    },
+    {
+      "id": "12",
+      "name": "Ice-Cream",
+      "quanity": 1,
+      "expiryDate": "Dec 22"
+    },
+    {
+      "id": 0.4873134077593153,
+      "name": "cheese",
+      "quanity": 1,
+      "expiryDate": "dec"
     }
   ]
 }

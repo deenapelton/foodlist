@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 
-export default function InventoryForm({addFood}) {
+export default function InventoryForm() {
     const [foodName, setFoodName] = useState("");
     const [foodQuanity, setFoodQuanity] = useState(0);
     const [expiryDate, setExpiryDate] = useState("");
@@ -16,7 +16,21 @@ export default function InventoryForm({addFood}) {
             quanity: foodQuanity,
             expiryDate: expiryDate,
         };
-        addFood(newFoodAdded)
+     const addFoodToServer = async (newFoodAdded: { id: number; name: string; quanity: number; expiryDate: string; }) =>{
+        const response = await fetch("http://localhost:3000/foodList", {
+            method: "POST",
+            body: JSON.stringify(newFoodAdded),
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+        });
+        if(response.ok) {
+            console.log("Food added successfully");
+        }
+    }
+
+        addFoodToServer(newFoodAdded)
         setFoodName("");
         setFoodQuanity(0);
         setExpiryDate("");
@@ -41,7 +55,8 @@ export default function InventoryForm({addFood}) {
                 value={expiryDate}
                 onChange={(e) => setExpiryDate(e.target.value)}
             />
-            <button type="submit">Add Food</button>
+            <button type="submit">Add To Foodlist</button>
+            
         </form>
     
     </div>

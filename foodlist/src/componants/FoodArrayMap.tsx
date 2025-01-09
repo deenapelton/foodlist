@@ -16,12 +16,12 @@ export default function FoodArrayMap() {
         fetch("http://localhost:3000/foodList")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            ;
             setFood(data); //Then I'm putting my data into state
         });
-    }, []);
+    }, [food]);
     
-
+ 
 
 //Now I'm returning my data in a ItemCard and I'm using map to 
 //give each food item it's own card
@@ -29,13 +29,15 @@ export default function FoodArrayMap() {
     return (
      
      <div className="d-flex flex-column mb-3">
-         <h1>Food List</h1>
-            {food.map((food) => (
+         <h1>Food Inventory</h1>
+            {food.map((food: Food) => (
                  <ItemCard
+                id={food.id}
                 key={food.id}
                 foodName={food.name}
                 foodQuanity={food.quanity}
                 expiryDate={food.expiryDate}
+                
                 />
             ))}
     </div>

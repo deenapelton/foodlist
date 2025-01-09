@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import MyButton from './MyButton';
+
+
+
 interface ItemCardProps {
+    id: number;
     foodName: string;
     foodQuanity: number;
     expiryDate: string;
+   
   }// This is setting the prop values
-const ItemCard: React.FC<ItemCardProps>=({foodName, foodQuanity, expiryDate}) => {
+export default function itemCard({id, foodName, foodQuanity, expiryDate}:ItemCardProps){
 
     //I'm setting state for all the parts I want to edit later
     const [isEditing, setIsEditing] = useState(false);
@@ -13,12 +18,45 @@ const ItemCard: React.FC<ItemCardProps>=({foodName, foodQuanity, expiryDate}) =>
     const [newFoodQuanity, setNewFoodQuanity] = useState(foodQuanity);
     const [newExpiryDate, setNewExpiryDate] = useState(expiryDate);
 const handleDelete = () => {
-    console.log("Delete");  
+    const url = "http://localhost:3000/foodList/" + id;
+    fetch(url, {method: "DELETE"}).then((response)=>{
+        if(!response.ok){
+            throw new Error("Something went wrong")
+        }
+       
+    }).catch((e)=> {
+        console.log(e);
+    });
+}
+interface NewNames{
+    id: number;
+    newFoodName: string;
+    newFoodQuanity: number;
+    newExpiryDate: string;
 }
 const handleEdit = () => {
-   // e.preventDefault() //prevents default
-    //create new object
-   
+const editFoodList = {
+    id: "id",
+    name: newFoodName,
+    quanity: newFoodQuanity,
+    expiryDate: newExpiryDate
+    
+}
+
+    fetch ("http://localhost:3000/foodList/" + id, {
+     method: "PUT",
+     headers: {
+        "Content-Type": "application/json"
+     },
+     body: JSON.stringify(editFoodList),
+
+    }).then((response) =>{
+        return response.json();
+
+    })
+    
+    setIsEditing(false);
+    console.log("Edited:", { newFoodName, newFoodQuanity, newExpiryDate });
 }
 
 
@@ -51,11 +89,11 @@ const handleEdit = () => {
                 </div>
             )}
             <div className="d-flex">
-                <MyButton doSomething={() => setIsEditing(!isEditing)} name={isEditing ? "Save" : "Edit"} />
-                <MyButton doSomething={handleDelete}  name="Delete" />
-            </div>
+                <MyButton doSomething={() => handleDelete()} name="Delete" />
+                <MyButton doSomething={isEditing ? handleEdit : () => setIsEditing(true)} name={isEditing ? "Save" : "Edit"} />
 
+            </div>
         </div>
-    )
-};
-export default ItemCard;
+        )
+    }
+
