@@ -32,11 +32,7 @@ const handleDelete = () => {
         console.log(e);
     });
 } 
-interface NewNames{
-    id: string;
-    newFoodName: string;
-    newFoodQuanity: string;
-}
+
 
 //this is my edit request
 const handleEdit = () => {
