@@ -1,58 +1,61 @@
 {
   "foodList": [
     {
-      "id": "3",
-      "name": "burger",
+      "id": "45be",
+      "name": "Pickles",
       "quanity": 1,
-      "expiryDate": "tomorrow"
+      "expiryDate": "March 2025"
     },
     {
-      "id": "4",
-      "name": "Sandwich",
-      "quanity": 25,
-      "expiryDate": "2022-12-31"
+      "id": "12e5",
+      "name": "Apple Juice",
+      "quanity": 1,
+      "expiryDate": "Jan 2026"
     },
     {
-      "id": "5",
+      "id": "058d",
       "name": "Ham",
       "quanity": 1,
-      "expiryDate": "Dec"
+      "expiryDate": "Jan. 28, 2026"
+    }
+  ],
+  "shoppinglist": [
+    {
+      "id": "787e",
+      "name": "Cilantro",
+      "quanity": "2 bunch"
     },
     {
-      "id": "6",
-      "name": "Apple Sauce",
-      "quanity": 2,
-      "expiryDate": "2025, Dec 21"
+      "id": "b9f6",
+      "name": "Cheese",
+      "quanity": "1 lb"
     },
     {
-      "id": "9",
-      "name": "Pudding",
-      "quanity": 1,
-      "expiryDate": "March"
+      "id": "f6bb",
+      "name": "spaghetti",
+      "quanity": "1 box"
+    }
+  ],
+  "meal": [
+    {
+      "id": "11f6",
+      "name": "Spaghetti"
     },
     {
-      "id": "10",
-      "name": "Pizza",
-      "quanity": 1,
-      "expiryDate": "dec"
+      "id": "4db4",
+      "name": "Tuna Salad"
     },
     {
-      "id": "11",
-      "name": "Popsicles",
-      "quanity": 1,
-      "expiryDate": "forever"
+      "id": "2de8",
+      "name": "Fish Tacos"
     },
     {
-      "id": "12",
-      "name": "Ice-Cream",
-      "quanity": 1,
-      "expiryDate": "Dec 22"
+      "id": "1b8e",
+      "name": "Pizza"
     },
     {
-      "id": 0.4873134077593153,
-      "name": "cheese",
-      "quanity": 1,
-      "expiryDate": "dec"
+      "id": "8b85",
+      "name": "French Fries"
     }
   ]
 }

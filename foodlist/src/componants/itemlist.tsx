@@ -4,24 +4,23 @@ import MyButton from './MyButton';
 
 
 interface ItemCardProps {
-    id: number;
+    id: string;
     foodName: string;
-    foodQuanity: number;
-    expiryDate: string;
+    foodQuanity: string;
+    
    
   }// This is setting the prop values
-export default function itemCard({id, foodName, foodQuanity, expiryDate}:ItemCardProps){
+export default function itemList({id, foodName, foodQuanity}:ItemCardProps){
 
     //I'm setting state for all the parts I want to edit later
     const [isEditing, setIsEditing] = useState(false);
     const [newFoodName, setNewFoodName] = useState(foodName);
     const [newFoodQuanity, setNewFoodQuanity] = useState(foodQuanity);
-    const [newExpiryDate, setNewExpiryDate] = useState(expiryDate);
 
 
     //This is the delete request
 const handleDelete = () => {
-    const url ="http://localhost:3000/foodList/" + id;
+    const url ="http://localhost:3000/shoppinglist/" + id;
     fetch(url, {method: "DELETE"})
    
     .then((response)=>{
@@ -34,10 +33,9 @@ const handleDelete = () => {
     });
 } 
 interface NewNames{
-    id: number;
+    id: string;
     newFoodName: string;
-    newFoodQuanity: number;
-    newExpiryDate: string;
+    newFoodQuanity: string;
 }
 
 //this is my edit request
@@ -46,11 +44,10 @@ const editFoodList = {
     id: id,
     name: newFoodName,
     quanity: newFoodQuanity,
-    expiryDate: newExpiryDate
     
 }
 
-    fetch ("http://localhost:3000/foodList/" + id, {
+    fetch ("http://localhost:3000/shoppinglist/" + id, {
      method: "PUT",
      headers: {
         "Content-Type": "application/json"
@@ -63,7 +60,7 @@ const editFoodList = {
     })
     
     setIsEditing(false);
-    console.log("Edited:", { newFoodName, newFoodQuanity, newExpiryDate });
+    console.log("Edited:", { newFoodName, newFoodQuanity});
 }
 
 
@@ -74,25 +71,21 @@ const editFoodList = {
                     <input 
                     type="text" 
                     value={newFoodName}
+                    placeholder='Item'
                     onChange={(e) => setNewFoodName( e.target.value)}
                     />
-                    <input type="number" 
+                    <input type="text" 
                     value={newFoodQuanity}
-                    onChange={(e) => setNewFoodQuanity( parseInt(e.target.value))}
+                    placeholder='How much do you need?'
+                    onChange={(e) => setNewFoodQuanity(e.target.value)}
                     />
-                    <input 
-                    type="text" 
-                    value={newExpiryDate} 
-                    onChange={(e) => setNewExpiryDate( e.target.value)}
-                    /> 
-                  
                     </div>
                    
             ) : (
                 <div>
-                    <p>{foodName}: <br/> <span>Quanity: {foodQuanity}</span> <br/><span>Expiration Date:{expiryDate}</span></p>
+                    <p>{foodName}: <span>  {foodQuanity}</span></p>
                    
-                    
+                   
                 </div>
             )}
             <div className="d-flex">

@@ -2,10 +2,10 @@ import { useState } from "react";
 
 
 
-export default function InventoryForm() {
+export default function ShoppingForm() {
     const [foodName, setFoodName] = useState("");
-    const [foodQuanity, setFoodQuanity] = useState(0);
-    const [expiryDate, setExpiryDate] = useState("");
+    const [foodQuanity, setFoodQuanity] = useState("");
+  
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault() //prevents default
@@ -14,11 +14,10 @@ export default function InventoryForm() {
             
             name: foodName,
             quanity: foodQuanity,
-            expiryDate: expiryDate,
         };
         
-     const addFoodToServer = async (newFoodAdded: {  name: string; quanity: number; expiryDate: string; }) =>{
-        const response = await fetch("http://localhost:3000/foodList", {
+     const addFoodToServer = async (newFoodAdded: {  name: string; quanity: string; }) =>{
+        const response = await fetch("http://localhost:3000/shoppinglist", {
             method: "POST",
             body: JSON.stringify(newFoodAdded),
             headers: {
@@ -33,13 +32,13 @@ export default function InventoryForm() {
 
         addFoodToServer(newFoodAdded)
         setFoodName("");
-        setFoodQuanity(0);
-        setExpiryDate("");
+        setFoodQuanity("");
+        
     };
 
     return (
         <div>
-            <h1>What we have:</h1>
+            <h1>What we need:</h1>
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
@@ -48,16 +47,12 @@ export default function InventoryForm() {
                 onChange={(e) => setFoodName(e.target.value)}
             />
             <input
-                type="number"
-                value={foodQuanity}
-                onChange={(e) => setFoodQuanity(parseInt(e.target.value))}
-            />
-            <input
                 type="text"
-                value={expiryDate}
-                placeholder="Expiration Date"
-                onChange={(e) => setExpiryDate(e.target.value)}
+                value={foodQuanity}
+                placeholder="How Much?"
+                onChange={(e) => setFoodQuanity(e.target.value)}
             />
+            
             <button type="submit">Add To Foodlist</button>
             
         </form>
@@ -65,3 +60,9 @@ export default function InventoryForm() {
     </div>
     );
 }
+
+
+
+
+
+

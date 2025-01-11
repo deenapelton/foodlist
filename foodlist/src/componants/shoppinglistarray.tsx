@@ -1,23 +1,19 @@
 import {useEffect, useState,} from "react";
-import ItemCard from "./itemCard";
+import ItemList from "./itemlist";
 type Food = {
-  id: number;
+  id: string;
   name: string;
-  quanity: number;
-  expiryDate: string;
+  quanity: string
+  
 };//This is setting the typscript values
 
 
-export default function FoodArrayMap() {
+export default function shoppingListArray() {
     const [food, setFood] = useState<Food[]>([]);
     //I have set the state
     //The useEffect is pulling my data in from my server
-    //UseEffect keeps the page from constant renders
-
-
-    
     useEffect(() => {
-        fetch("http://localhost:3000/foodList")
+        fetch("http://localhost:3000/shoppinglist")
         .then((response) => response.json())
         .then((data) => {
             ;
@@ -31,15 +27,15 @@ export default function FoodArrayMap() {
 
     return (
      
-     <div className="d-flex flex-column mb-3" >
+     <div className="d-flex flex-column mb-3">
          
             {food.map((food: Food) => (
-                 <ItemCard
+                 <ItemList
                 id={food.id}
                 key={food.id}
                 foodName={food.name}
                 foodQuanity={food.quanity}
-                expiryDate={food.expiryDate}
+                
                 
                 />
             ))}
