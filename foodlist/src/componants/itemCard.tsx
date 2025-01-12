@@ -21,7 +21,7 @@ export default function itemCard({id, foodName, foodQuanity, expiryDate}:ItemCar
 
     //This is the delete request
 const handleDelete = () => {
-    const url ="http://localhost:3000/foodList/" + id;
+    const url ="https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/Inventory/" + id;
     fetch(url, {method: "DELETE"})
    
     .then((response)=>{
@@ -45,7 +45,7 @@ const editFoodList ={
     
 }
 
-    fetch ("http://localhost:3000/foodList/" + id, {
+    fetch ("https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/Inventory/" + id, {
      method: "PUT",
      headers: {
         "Content-Type": "application/json"

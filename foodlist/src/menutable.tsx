@@ -12,7 +12,7 @@ export default function menuTable() {
         //I have set the state
         //The useEffect is pulling my data in from my server
         useEffect(() => {
-            fetch("http://localhost:3000/meal")
+            fetch("https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/menu")
             .then((response) => response.json())
             .then((data) => {
                 ;

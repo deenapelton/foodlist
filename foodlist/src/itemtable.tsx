@@ -17,7 +17,7 @@ export default function itemTable({id, mealName,}:ItemCardProps){
 
     //This is the delete request
 const handleDelete = () => {
-    const url ="http://localhost:3000/meal/" + id;
+    const url ="https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/menu/" + id;
     fetch(url, {method: "DELETE"})
    
     .then((response)=>{
@@ -40,7 +40,7 @@ const editMealList = {
     
 }
 
-    fetch ("http://localhost:3000/meal/" + id, {
+    fetch ("https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/menu/" + id, {
      method: "PUT",
      headers: {
         "Content-Type": "application/json"

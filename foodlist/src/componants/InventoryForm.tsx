@@ -18,7 +18,7 @@ export default function InventoryForm() {
         };
         
      const addFoodToServer = async (newFoodAdded: {  name: string; quanity: number; expiryDate: string; }) =>{
-        const response = await fetch("http://localhost:3000/foodList", {
+        const response = await fetch("https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/Inventory", {
             method: "POST",
             body: JSON.stringify(newFoodAdded),
             headers: {

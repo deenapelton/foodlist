@@ -17,7 +17,7 @@ export default function FoodArrayMap() {
 
     
     useEffect(() => {
-        fetch("http://localhost:3000/foodList")
+        fetch("https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/Inventory")
         .then((response) => response.json())
         .then((data) => {
             ;
