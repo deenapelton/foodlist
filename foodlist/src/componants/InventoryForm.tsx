@@ -7,8 +7,8 @@ export default function InventoryForm() {
     const [foodQuanity, setFoodQuanity] = useState(0);
     const [expiryDate, setExpiryDate] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault() //prevents default
+    const handleSubmit = () => {
+        //e.preventDefault() //prevents default
         //create new object
        const newFoodAdded={
             

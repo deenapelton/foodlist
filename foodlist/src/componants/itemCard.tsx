@@ -1,5 +1,6 @@
 import {  useState } from 'react';
 import MyButton from './MyButton';
+import NewButton from './NewButton'
 
 
 
@@ -8,9 +9,11 @@ interface ItemCardProps {
     foodName: string;
     foodQuanity: number;
     expiryDate: string;
+    handleClick: any
+  
    
   }// This is setting the prop values
-export default function itemCard({id, foodName, foodQuanity, expiryDate}:ItemCardProps){
+export default function itemCard({id, foodName, foodQuanity, expiryDate, handleClick}:ItemCardProps){
 
     //I'm setting state for all the parts I want to edit later
     const [isEditing, setIsEditing] = useState(false);
@@ -28,10 +31,11 @@ const handleDelete = () => {
         if(!response.ok){
             throw new Error("Something went wrong")
         }
-       
+       handleClick();
     }).catch((e)=> {
         console.log(e);
     });
+
 } 
 
 
@@ -53,6 +57,7 @@ const editFoodList ={
      body: JSON.stringify(editFoodList),
 
     }).then((response) =>{
+        handleClick()
         return response.json();
 
     })
@@ -91,7 +96,7 @@ const editFoodList ={
                 </div>
             )}
             <div className="d-flex">
-                <MyButton doSomething={() => handleDelete()} name="Delete" />
+                <NewButton doSomething={() => handleDelete()} name="Delete" />
                 <MyButton doSomething={isEditing ? handleEdit : () => setIsEditing(true)} name={isEditing ? "Save" : "Edit"} />
 
             </div>

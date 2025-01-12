@@ -3,23 +3,37 @@ import ItemList from "./itemlist";
 type Food = {
   id: string;
   name: string;
-  quanity: string
+  quanity: string;
   
 };//This is setting the typscript values
 
 
 export default function shoppingListArray() {
     const [food, setFood] = useState<Food[]>([]);
+    const getFood = async() =>{
+        await   fetch("http://localhost:3000/shoppinglist")
+        .then((response) => response.json())
+        .then((data) => {
+            
+            setFood(data); //Then I'm putting my data into state
+        });
+    }
+    function handleClick(){
+        getFood();
+    }
+    useEffect(()=>{
+        getFood();
+    },[]);
     //I have set the state
     //The useEffect is pulling my data in from my server
-    useEffect(() => {
+    /*useEffect(() => {
         fetch("http://localhost:3000/shoppinglist")
         .then((response) => response.json())
         .then((data) => {
             ;
             setFood(data); //Then I'm putting my data into state
         });
-    }, []);
+    }, []);*/
   
     
 //Now I'm returning my data in a ItemCard and I'm using map to 
@@ -35,7 +49,7 @@ export default function shoppingListArray() {
                 key={food.id}
                 foodName={food.name}
                 foodQuanity={food.quanity}
-                
+                handleClick={handleClick}
                 
                 />
             ))}

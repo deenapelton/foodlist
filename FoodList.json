@@ -1,61 +1,66 @@
 {
   "foodList": [
     {
-      "id": "45be",
-      "name": "Pickles",
-      "quanity": 1,
-      "expiryDate": "March 2025"
+      "id": "1c1d",
+      "name": "sausage",
+      "quanity": 4,
+      "expiryDate": "2029"
     },
     {
-      "id": "12e5",
-      "name": "Apple Juice",
+      "id": "bc97",
+      "name": "PepsiCola",
       "quanity": 1,
-      "expiryDate": "Jan 2026"
+      "expiryDate": "28"
     },
     {
-      "id": "058d",
-      "name": "Ham",
+      "id": "112b",
+      "name": "Tortilla Chips",
       "quanity": 1,
-      "expiryDate": "Jan. 28, 2026"
+      "expiryDate": "29"
     }
   ],
   "shoppinglist": [
     {
-      "id": "787e",
-      "name": "Cilantro",
-      "quanity": "2 bunch"
-    },
-    {
       "id": "b9f6",
       "name": "Cheese",
-      "quanity": "1 lb"
+      "quanity": "2 lb"
     },
     {
       "id": "f6bb",
       "name": "spaghetti",
       "quanity": "1 box"
+    },
+    {
+      "id": "3ca0",
+      "name": "Ice-Cream",
+      "quanity": "1 gallon"
+    },
+    {
+      "id": "aa8e",
+      "name": "Bread",
+      "quanity": "1 loaf"
     }
   ],
   "meal": [
     {
-      "id": "11f6",
-      "name": "Spaghetti"
-    },
-    {
-      "id": "4db4",
-      "name": "Tuna Salad"
-    },
-    {
-      "id": "2de8",
-      "name": "Fish Tacos"
-    },
-    {
       "id": "1b8e",
-      "name": "Pizza"
+      "name": "Pizza Pie"
     },
     {
       "id": "8b85",
-      "name": "French Fries"
+      "name": "Burger and Fries"
+    },
+    {
+      "id": "1b8f",
+      "name": "Chicken and Rice"
+    },
+    {
+      "id": "8d8c",
+      "name": "Spinach Dip"
+    },
+    {
+      "id": "2221",
+      "name": "Salad"
     }
   ]
 }

@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function input() {
     const [meal, setMeal] = useState("");
  
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault() //prevents default
+    const handleSubmit = () => {
+       // e.preventDefault() //prevents default
         //create new object
       const newMeal={
         name: meal

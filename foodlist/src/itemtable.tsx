@@ -6,11 +6,11 @@ import MyButton from './componants/MyButton';
 interface ItemCardProps {
     id: string;
     mealName: string;
-   
+    handleClick: any
     
    
   }// This is setting the prop values
-export default function itemTable({id, mealName,}:ItemCardProps){
+export default function itemTable({id, mealName, handleClick}:ItemCardProps){
     //I'm setting state for all the parts I want to edit later
     const [isEditing, setIsEditing] = useState(false);
     const [newMeal, setNewMeal] = useState(mealName);
@@ -24,7 +24,7 @@ const handleDelete = () => {
         if(!response.ok){
             throw new Error("Something went wrong")
         }
-       
+    handleClick();
     }).catch((e)=> {
         console.log(e);
     });
@@ -36,10 +36,7 @@ const handleEdit = () => {
 const editMealList = {
     id: id,
     name: newMeal,
-  
-    
 }
-
     fetch ("http://localhost:3000/meal/" + id, {
      method: "PUT",
      headers: {
@@ -47,13 +44,15 @@ const editMealList = {
      },
      body: JSON.stringify(editMealList),
 
-    }).then((response) =>{
+    }).then((response) =>{ handleClick()
+        
         return response.json();
-
-    })
+})
+   
+    setIsEditing(false); 
     
-    setIsEditing(false);
     console.log("Edited:", {newMeal});
+   
 }
 
 

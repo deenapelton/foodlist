@@ -7,10 +7,11 @@ interface ItemCardProps {
     id: string;
     foodName: string;
     foodQuanity: string;
+    handleClick: any;
     
    
   }// This is setting the prop values
-export default function itemList({id, foodName, foodQuanity}:ItemCardProps){
+export default function itemList({id, foodName, foodQuanity, handleClick}:ItemCardProps){
 
     //I'm setting state for all the parts I want to edit later
     const [isEditing, setIsEditing] = useState(false);
@@ -27,7 +28,7 @@ const handleDelete = () => {
         if(!response.ok){
             throw new Error("Something went wrong")
         }
-       
+       handleClick();
     }).catch((e)=> {
         console.log(e);
     });
@@ -51,6 +52,7 @@ const editFoodList = {
      body: JSON.stringify(editFoodList),
 
     }).then((response) =>{
+        handleClick()
         return response.json();
 
     })

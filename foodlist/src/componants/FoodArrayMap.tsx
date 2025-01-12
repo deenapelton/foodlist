@@ -13,17 +13,29 @@ export default function FoodArrayMap() {
     //I have set the state
     //The useEffect is pulling my data in from my server
     //UseEffect keeps the page from constant renders
-
-
+const getFood = async() =>{
+    await   fetch("http://localhost:3000/foodList")
+    .then((response) => response.json())
+    .then((data) => {
+        
+        setFood(data); //Then I'm putting my data into state
+    });
+}
+function handleClick(){
+    getFood();
+}
+useEffect(()=>{
+    getFood();
+},[]);
     
-    useEffect(() => {
+  /*  useEffect(() => {
         fetch("http://localhost:3000/foodList")
         .then((response) => response.json())
         .then((data) => {
             ;
             setFood(data); //Then I'm putting my data into state
         });
-    }, []);
+    }, []);*/
   
     
 //Now I'm returning my data in a ItemCard and I'm using map to 
@@ -40,7 +52,7 @@ export default function FoodArrayMap() {
                 foodName={food.name}
                 foodQuanity={food.quanity}
                 expiryDate={food.expiryDate}
-                
+                handleClick={handleClick}
                 />
             ))}
     </div>

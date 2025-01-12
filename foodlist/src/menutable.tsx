@@ -11,14 +11,30 @@ export default function menuTable() {
         const [meal, setMeal] = useState<meal[]>([]);
         //I have set the state
         //The useEffect is pulling my data in from my server
-        useEffect(() => {
+
+        const getMeal = async() =>{
+            await   fetch("http://localhost:3000/meal")
+            .then((response) => response.json())
+            .then((data) => {
+                
+                setMeal(data); //Then I'm putting my data into state
+            });
+        }
+        function handleClick(){
+            getMeal();
+        }
+        useEffect(()=>{
+            getMeal();
+        },[]);
+        
+       /* useEffect(() => {
             fetch("http://localhost:3000/meal")
             .then((response) => response.json())
             .then((data) => {
                 ;
                 setMeal(data); //Then I'm putting my data into state
             });
-        }, []);
+        }, []);*/
 
 
     return(
@@ -30,6 +46,7 @@ export default function menuTable() {
                    id={meal.id}
                    key={meal.id}
                    mealName={meal.name}
+                   handleClick={handleClick}
                    />
                 ))}</span>
    </ul>
