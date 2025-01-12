@@ -13,7 +13,7 @@ export default function input() {
       }
         
      const addMealToServer = async () =>{
-        const response = await fetch("https://67830f4a8b6c7a1316f366aa.mockapi.io/foodlist/menu", {
+        const response = await fetch("http://localhost:3000/meal", {
             method: "POST",
             body: JSON.stringify(newMeal),
             headers: {
